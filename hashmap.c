@@ -74,8 +74,10 @@ void eraseMap(HashMap * map,  char * key) {
   Pair * par = searchMap(map,key);
   if (par != NULL){
     par->key = NULL;
+    par->value = NULL;
     map->size--;
   }
+  map->current =-1;
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
