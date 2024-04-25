@@ -93,13 +93,11 @@ Pair * searchMap(HashMap * map,  char * key) {
 }
 
 Pair * firstMap(HashMap * map) {
+  if (map == NULL)
+    exit(EXIT_FAILURE);
   
-  long pos = 0;
-  while(map->buckets[pos] == NULL){
-    pos++;
-  }
-  map->current = pos;
-  return map->buckets[pos];
+  map->current =-1;
+  return nextMap(map);
 }
 
 Pair * nextMap(HashMap * map) {
