@@ -106,6 +106,9 @@ Pair * nextMap(HashMap * map) {
   while(map->buckets[pos] == NULL && pos < map->capacity){
     pos++;
   }
-  map->current = pos;
-  return map->buckets[pos];
+  if (map->buckets[pos]->key != NULL){
+    map->current = pos;
+    return map->buckets[pos];
+  }
+  return NULL;
 }
