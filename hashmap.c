@@ -110,14 +110,12 @@ Pair * firstMap(HashMap * map) {
 }
 
 Pair * nextMap(HashMap * map) {
-  
-  long pos = map->current+1;
-  while(map->buckets[pos] == NULL && pos < map->capacity){
-    if (map->buckets[pos]->key != NULL && map->buckets[pos] != NULL){
-    map->current = pos;
-    return map->buckets[pos];
+  if (map == NULL) exit(EXIT_FAILURE);
+  for (int i = map->current+1 ; i < map->capacity ; i++){
+    if (map->buckets[i] != NULL && map->buckets[i]->key != NULL){
+      map->current = i;
+      return map->buckets[i];
     }
-    pos++;
   }
   return NULL;
 }
